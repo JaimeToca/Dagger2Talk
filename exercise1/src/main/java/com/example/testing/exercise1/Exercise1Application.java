@@ -1,6 +1,8 @@
 package com.example.testing.exercise1;
 
 import android.app.Application;
+import android.content.SharedPreferences;
+
 import com.example.testing.exercise1.component.ApplicationComponent;
 import com.example.testing.exercise1.component.DaggerApplicationComponent;
 import com.example.testing.exercise1.module.ApplicationModule;

@@ -21,7 +21,10 @@ public class ApplicationModule {
         return application;
     }
 
-    //Provide sharePreferences using PreferencesManager.getDefaultSharedPreferences(context)
+    //2. We want sharePreferences instance tied to the application lifecycle and
+    //available to all our activities and fragments.
+
+    //3.Provide sharePreferences using PreferencesManager.getDefaultSharedPreferences
     @Provides @Singleton
     public SharedPreferences provideSharedPreferences(Context context){
         return PreferenceManager.getDefaultSharedPreferences(context);
