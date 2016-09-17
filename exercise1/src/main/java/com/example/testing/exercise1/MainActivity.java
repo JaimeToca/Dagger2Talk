@@ -16,15 +16,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bindViews();
-        initDependacyGraph();
-    }
-
-    private void initDependacyGraph(){
-        ((Exercise1Application)getApplication()).getApplicationComponent().inject(this);
+        initDependacy();
     }
 
     private void bindViews(){
         tvResult = (TextView) findViewById(R.id.tvResult);
+    }
+
+    private void initDependacy(){
+        ((Exercise1Application)getApplication()).getApplicationComponent().inject(this);
     }
 
     @Override
