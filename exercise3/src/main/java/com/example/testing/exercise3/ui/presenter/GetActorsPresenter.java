@@ -1,33 +1,33 @@
 package com.example.testing.exercise3.ui.presenter;
 
-import com.example.testing.exercise3.LoginActivity;
+import com.example.testing.exercise3.ActorsListActivity;
 import com.example.testing.exercise3.repository.ActorsNetController;
 import com.example.testing.exercise3.repository.GetActorsCallback;
 import com.example.testing.exercise3.repository.model.Actor;
 import com.example.testing.exercise3.repository.model.ActorsWrapper;
 
 public class GetActorsPresenter {
-    LoginActivity loginActivity;
+    ActorsListActivity actorsListActivity;
     ActorsNetController actorsNetController;
 
-    public GetActorsPresenter(LoginActivity loginActivity, ActorsNetController actorsNetController){
-        this.loginActivity = loginActivity;
+    public GetActorsPresenter(ActorsListActivity actorsListActivity, ActorsNetController actorsNetController){
+        this.actorsListActivity = actorsListActivity;
         this.actorsNetController = actorsNetController;
     }
 
     public void getActors(){
-        loginActivity.showLoading();
+        actorsListActivity.showLoading();
         actorsNetController.getActors(new GetActorsCallback() {
             @Override
             public void onSuccess(ActorsWrapper actorsWrapper) {
-                loginActivity.hideLoading();
+                actorsListActivity.hideLoading();
                 String actorsFormatted = formatActorsWrapperToShowOnUI(actorsWrapper);
-                loginActivity.showActors(actorsFormatted);
+                actorsListActivity.showActors(actorsFormatted);
             }
 
             @Override
             public void onError(String error) {
-                loginActivity.hideLoading();
+                actorsListActivity.hideLoading();
             }
         });
     }

@@ -2,12 +2,11 @@ package com.example.testing.exercise3;
 
 import android.app.Application;
 import com.example.testing.exercise3.repository.api.ActorsApiModule;
-import com.example.testing.exercise3.ui.component.LoginActivityComponent;
+import com.example.testing.exercise3.ui.component.ActorsListActivityComponent;
 
 public class Exercise3Application extends Application {
 
     private ApplicationComponent applicationComponent;
-    private LoginActivityComponent loginActivityComponent;
 
     @Override
     public void onCreate() {
@@ -25,9 +24,5 @@ public class Exercise3Application extends Application {
 
     public ApplicationComponent getApplicationComponent(){
         return applicationComponent;
-    }
-
-    public void releaseLoginActivityComponent(){
-        loginActivityComponent = null;
     }
 }

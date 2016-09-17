@@ -1,5 +1,6 @@
 package com.example.testing.exercise3;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,21 +9,22 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.testing.exercise3.ui.component.LoginActivityComponent;
-import com.example.testing.exercise3.ui.module.LoginActivityModule;
+import com.example.testing.exercise3.ui.component.ActorsListActivityComponent;
+import com.example.testing.exercise3.ui.module.ActorsListActivityModule;
 import com.example.testing.exercise3.ui.presenter.GetActorsPresenter;
 
 import javax.inject.Inject;
 
-public class LoginActivity extends AppCompatActivity {
+public class ActorsListActivity extends AppCompatActivity {
 
     private static String DAGGER_LOG = "Dagger";
 
-    private LoginActivityComponent loginActivityComponent;
+    private ActorsListActivityComponent actorsListActivityComponent;
     private ProgressBar mPbLoading;
     private Button mButtonGetActors;
     private TextView mTvActorList;
     @Inject GetActorsPresenter mPresenter;
+    @Inject SharedPreferences mSharePreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initLoginActivitySubGraph(){
-        loginActivityComponent = ((Exercise3Application)getApplication())
-                .getApplicationComponent()
-                .plus(new LoginActivityModule(this));
+        //1. Initialize activity subgraph. You should use getApplicationComponent from Exercise3Application.class
+        //and use "plus" method to set ActorsListActivityModule in the subgraph
 
-        loginActivityComponent.inject(this);
+        //2. Use inject method in actorsListActivityComponent to make injection available for this class
+        actorsListActivityComponent = ((Exercise3Application)getApplication())
+                .getApplicationComponent()
+                .plus(new ActorsListActivityModule(this));
+        actorsListActivityComponent.inject(this);
     }
 
     private void setButtonListener(){
@@ -59,8 +64,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        if (mPresenter != null){
-            Log.i(DAGGER_LOG, "Presenter not null!");
+        if ((mPresenter != null) && (mSharePreferences != null)){
+            Log.i(DAGGER_LOG, "Presenter and sharePreferences not null!");
         }
     }
 
@@ -79,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-        ((Exercise3Application)getApplication()).releaseLoginActivityComponent();
+        //3. Release ActorsListActivityComponent
+        actorsListActivityComponent = null;
     }
 }
