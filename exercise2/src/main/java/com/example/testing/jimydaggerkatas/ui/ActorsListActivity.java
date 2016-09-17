@@ -9,13 +9,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.testing.jimydaggerkatas.R;
-import com.example.testing.jimydaggerkatas.ui.component.DaggerLoginActivityComponent;
-import com.example.testing.jimydaggerkatas.ui.component.LoginActivityComponent;
-import com.example.testing.jimydaggerkatas.ui.module.LoginActivityModule;
+import com.example.testing.jimydaggerkatas.ui.component.ActorsListActivityComponent;
+import com.example.testing.jimydaggerkatas.ui.component.DaggerActorsListActivityComponent;
+import com.example.testing.jimydaggerkatas.ui.module.ActorsListActivityModule;
 import com.example.testing.jimydaggerkatas.ui.presenter.GetActorsPresenter;
 import javax.inject.Inject;
 
-public class LoginActivity extends AppCompatActivity {
+public class ActorsListActivity extends AppCompatActivity {
 
     private static String DAGGER_LOG = "Dagger";
 
@@ -40,11 +40,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initDaggerLoginActivityGraph(){
-        LoginActivityComponent loginActivityComponent = DaggerLoginActivityComponent
+        //1. Initialize actorsListActivityComponent as we did in Exercise 1 (Exercise1Application.class)
+        ActorsListActivityComponent actorsListActivityComponent = DaggerActorsListActivityComponent
                 .builder()
-                .loginActivityModule(new LoginActivityModule(this))
+                .actorsListActivityModule(new ActorsListActivityModule(this))
                 .build();
-        loginActivityComponent.inject(this);
+        //2. Use inject method in actorsListActivity component to make injection available for this class
+        actorsListActivityComponent.inject(this);
     }
 
     private void setButtonListener(){

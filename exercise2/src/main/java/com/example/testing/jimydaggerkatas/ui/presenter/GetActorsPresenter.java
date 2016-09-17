@@ -4,33 +4,31 @@ import com.example.testing.jimydaggerkatas.repository.ActorsNetController;
 import com.example.testing.jimydaggerkatas.repository.GetActorsCallback;
 import com.example.testing.jimydaggerkatas.repository.model.Actor;
 import com.example.testing.jimydaggerkatas.repository.model.ActorsWrapper;
-import com.example.testing.jimydaggerkatas.ui.LoginActivity;
-
-import javax.inject.Inject;
+import com.example.testing.jimydaggerkatas.ui.ActorsListActivity;
 
 public class GetActorsPresenter {
 
-    LoginActivity loginActivity;
+    ActorsListActivity actorsListActivity;
     ActorsNetController actorsNetController;
 
-    public GetActorsPresenter(LoginActivity loginActivity, ActorsNetController actorsNetController){
-        this.loginActivity = loginActivity;
+    public GetActorsPresenter(ActorsListActivity actorsListActivity, ActorsNetController actorsNetController){
+        this.actorsListActivity = actorsListActivity;
         this.actorsNetController = actorsNetController;
     }
 
     public void getActors(){
-        loginActivity.showLoading();
+        actorsListActivity.showLoading();
         actorsNetController.getActors(new GetActorsCallback() {
             @Override
             public void onSuccess(ActorsWrapper actorsWrapper) {
-                loginActivity.hideLoading();
+                actorsListActivity.hideLoading();
                 String actorsFormatted = formatActorsWrapperToShowOnUI(actorsWrapper);
-                loginActivity.showActors(actorsFormatted);
+                actorsListActivity.showActors(actorsFormatted);
             }
 
             @Override
             public void onError(String error) {
-                loginActivity.hideLoading();
+                actorsListActivity.hideLoading();
             }
         });
     }
