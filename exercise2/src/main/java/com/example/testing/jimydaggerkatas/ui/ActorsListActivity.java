@@ -45,7 +45,7 @@ public class ActorsListActivity extends AppCompatActivity {
                 .builder()
                 .actorsListActivityModule(new ActorsListActivityModule(this))
                 .build();
-        //2. Use inject method in actorsListActivity component to make injection available for this class
+        //2. Use inject method in actorsListActivityComponent to make injection available for this class
         actorsListActivityComponent.inject(this);
     }
 
