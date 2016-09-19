@@ -20,8 +20,8 @@ import com.example.testing.exercise3.ui.module.ActorsListActivityModule;
 import com.example.testing.exercise3.ui.scope.ActivityScope;
 import dagger.Subcomponent;
 
-@ActivityScope
-@Subcomponent(modules = {ActorsListActivityModule.class})
+//1. The scope of this component should be activityScope
+//2. Where are dependencies being taking from?
+//3. Allow actorListActivity to inject
 public interface ActorsListActivityComponent {
-    void inject(ActorsListActivity actorsListActivity);
 }

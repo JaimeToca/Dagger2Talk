@@ -23,7 +23,7 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Inject SharedPreferences mPreferences;
+    SharedPreferences mPreferences;
     private TextView tvResult;
 
     @Override

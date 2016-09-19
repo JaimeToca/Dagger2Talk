@@ -22,7 +22,6 @@ import dagger.Component;
 
 //1.Indicate where we are taking dependencies. Check out ActorsListActivityModule.class
 //Be aware that the presenter needs a network controller.
-@Component(modules = {ActorsListActivityModule.class, ActorsApiModule.class})
 public interface ActorsListActivityComponent {
-    void inject(ActorsListActivity actorsListActivity);
+
 }

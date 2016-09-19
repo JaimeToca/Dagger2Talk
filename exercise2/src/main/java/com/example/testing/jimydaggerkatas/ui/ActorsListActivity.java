@@ -56,12 +56,7 @@ public class ActorsListActivity extends AppCompatActivity {
 
     private void initDaggerLoginActivityGraph(){
         //1. Initialize actorsListActivityComponent as we did in Exercise 1 (Exercise1Application.class)
-        ActorsListActivityComponent actorsListActivityComponent = DaggerActorsListActivityComponent
-                .builder()
-                .actorsListActivityModule(new ActorsListActivityModule(this))
-                .build();
         //2. Use inject method in actorsListActivityComponent to make injection available for this class
-        actorsListActivityComponent.inject(this);
     }
 
     private void setButtonListener(){

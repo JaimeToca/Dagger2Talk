@@ -29,9 +29,9 @@ public class Exercise1Application extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //Here we create the dependancy Graph and connect everything together using a component
-        applicationComponent = DaggerApplicationComponent.builder().
-                applicationModule(new ApplicationModule(this)).build();
+        //1.Here we initialize our dependancy Graph
+        //2.Note: Dagger generate a class (Dagger[ComponentName].class) that implements applicationComponent
+        //3.Initialize applicationComponent using that class
     }
 
     public ApplicationComponent getApplicationComponent(){

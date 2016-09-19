@@ -25,5 +25,4 @@ import dagger.Component;
 @Component(modules = { ApplicationModule.class, ActorsApiModule.class})
 public interface ApplicationComponent {
     //1. ApplicationComponent will be root for ActorListActivityComponent. Use plus method
-    ActorsListActivityComponent plus(ActorsListActivityModule actorsListActivityModule);
 }

@@ -59,12 +59,7 @@ public class ActorsListActivity extends AppCompatActivity {
     private void initLoginActivitySubGraph(){
         //1. Initialize activity subgraph. You should use getApplicationComponent from Exercise3Application.class
         //and use "plus" method to set ActorsListActivityModule in the subgraph
-
         //2. Use inject method in actorsListActivityComponent to make injection available for this class
-        actorsListActivityComponent = ((Exercise3Application)getApplication())
-                .getApplicationComponent()
-                .plus(new ActorsListActivityModule(this));
-        actorsListActivityComponent.inject(this);
     }
 
     private void setButtonListener(){
