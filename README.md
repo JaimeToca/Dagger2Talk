@@ -1,2 +1,2 @@
 # Dagger2Katas
-coming soon
+Coming soon.
