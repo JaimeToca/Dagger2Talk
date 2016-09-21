@@ -1,2 +1,2 @@
 # Dagger2Katas
-This branch contains the solutions for all the exercises.
+This branch contains the exercises.
