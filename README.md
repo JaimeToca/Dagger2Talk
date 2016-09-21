@@ -1,2 +1,2 @@
 # Dagger2Katas
-Coming soon.
+This branch default contains the solutions for all the exercises.
