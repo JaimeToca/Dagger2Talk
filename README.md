@@ -1,5 +1,5 @@
 # Dagger2Katas
-This talk was given some years ago, I recommend to check out dagger official website and get updated, since many things have changed
+Note:This talk was given some years ago, I recommend to check out dagger official website and get updated, since many things have changed
 
 Slides : https://speakerdeck.com/jaimetoca/dagger-2-android-and-java
 
